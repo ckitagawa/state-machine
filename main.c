@@ -8,6 +8,9 @@ int main()
 	int i;
 	init_event_queue();
 
+	e = process_next_event();
+	printf("Event %d, data: %lu\n", e.id, e.data);
+
 	for (i = 0; i < 10; i++) {
 		add_event((EID) i, (uint64_t) i);
 		if (i == 5 || i == 7) {

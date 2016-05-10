@@ -1,11 +1,14 @@
 CC = gcc
-CFLAGS=-Wall -g
+CFLAGS=-Wall -g -I.
+DEPS=sm/event_queue.h
 
-VPATH = sm
 TARGET = main
 
-main:
-	$(CC) $(CFLAGS) -o $< main main.c event_queue.h event_queue.c;
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+main: main.o sm/event_queue.c
+	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c sm/event_queue.c
 
 clean:
 	rm -f $(TARGET)
