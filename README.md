@@ -11,3 +11,12 @@ The purpose of this project is to create a dynamic state machine that can be ste
 ##Components:
 
 The main components of this project will be event queues, state machines and timers.
+
+Status
+- Event queue finished and tested
+
+Todos:
+- Make state-machine
+- Improve makefile
+- Make events
+- Make traffic component
