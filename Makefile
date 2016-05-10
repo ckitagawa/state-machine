@@ -1,16 +1,11 @@
 CC = gcc
-
 CFLAGS=-Wall -g
 
-VPATH:=sm
+VPATH = sm
 TARGET = main
 
-all:
-	for i in $(TARGET) ; do \
-		$(CC) $(CFLAGS) -o $$i $$i.c sm/event_queue.h sm/event_queue.c; \
-	done
+main:
+	$(CC) $(CFLAGS) -o $< main main.c event_queue.h event_queue.c;
 
 clean:
-	for i in $(TARGET) ; do \
-		rm -f $$i ; \
-	done
+	rm -f $(TARGET)
